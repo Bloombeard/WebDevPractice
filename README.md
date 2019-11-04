@@ -11,4 +11,4 @@ This is the first file created and at the moment is an in-progress project build
 this is an incomplete project whose aim was to create blocks of test with the appearance of an IM app. I got most of the way done with it before our time for the assignment ran out.
 
 7-1chatDemonstration
-this program was me typing along with Jean's version of the textConvo assinment as she was typing it.
+this program was me typing along with Jean's version of the textConvo assinment as she was typing it. Different commits may happen when a large chunk of code was deleted before demonstrating a different method (such as switching from float to flexbox).
