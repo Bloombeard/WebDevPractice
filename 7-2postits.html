@@ -6,19 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Postits</title>
     <style>
+        body{
+            background-color: gray;
+        }
         .postit{
             background:  #edc045;
             height: 100px;
             width: 100px;
             transition: all 0.5s ease-in-out;
+            display: inline-block;
+            overflow-y: scroll;
+            margin: 1vw;
+            padding: 5px;
+            vertical-align: top;
         }
         .postit:hover{
             transform: scale(1.2 1.2);
             box-shadow: 3px 3px 8px;
         }
+        .bigpostit{
+            background-color:lightyellow;
+            transform: scale(3);
+            transition: all 0.5 ease-in-out;
+            margin: auto;
+            display: block;
+            margin-top: 25vw;
+            top: inherit;
+        }
+        
+        
     </style>
+    <script>
+        function add_postit()
+        {
+            postit = document.getElementById("boxes");
+            postit.innerHTML += "<div class='postit'>" + document.getElementById("myinput").value + "</div>";
+        }
+
+        function returnkey(event)
+        {
+            if (event.keyCode == 13)
+            {
+                add_postit();
+            }
+        }
+
+        function expand(id)
+        {
+            state = document.getElementById(id)
+            if (state.classList.contains("bitpostit"))
+            {
+                state.classList.remove("bigpostit");
+                console.log("it has bigpostit");
+            }
+            else
+            {
+                state.classList.add("bigpostit");
+            }
+
+            
+        }
+    </script>
 </head>
 <body>
-    <div class="postit">Animation test</div>
+    <div id="boxes">
+        <div id="items" class="postit" onclick="expand(id)">cucumbers tomatoes carrots</div>
+        <div class="postit">vacuum living room</div>
+        <div class="postit">do groceries</div>
+        <div class="postit">replace house</div>
+        <div class="postit">translate son</div>
+    </div>
+
+    <input onkeypress="returnkey()" type="text" id="myinput">
+    <button onclick="add_postit()">add post-it</button>
 </body>
+<script>
+    document.getElementById("myinput").addEventListener("keypress", returnkey);
+</script>
 </html>
