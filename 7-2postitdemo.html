@@ -20,15 +20,52 @@
         }
     </style>
     <script>
+        var x = 1;
+        console.log(x);
+
+        if(x > 0)
+        {
+            console.log("yes, x is greater than zero")
+        }
+
+        for(var i = 0; i < 10; i++)
+        {
+            console.log(i);
+        }
+
+        while(x < 10)
+        {
+            console.log("x is " + x);
+            x += 1;
+        }
+
+        function add_sticky()
+        {
+            listvar = document.getElementById("mylist");
+            listvar.innerHTML += "<li>" + document.getElementById("myinput").value + "</li>";
+        }
+
+        function returnkey(event)
+        {
+            if (event.keyCode == 13)
+            {
+                add_sticky();
+            }
+        }
         
     </script>
 </head>
-<body>
-    <ul>
+<!-- adding ids is like adding doors through which javascript can get into your code -->
+<body id="mybody">
+    <ul id="mylist">
         <li>post it number one</li>
         <li>post it number 2</li>
-        <li>Here is my next one</li>
-        
+        <li>Here is my next one</li>        
     </ul>
+    <input onkeypress="returnkey()" type="text" id="myinput">
+    <button onclick="add_sticky()">press me</button>
 </body>
+<script>
+    document.getElementById("myinput").addEventListener("keypress", returnkey);
+</script>
 </html>
