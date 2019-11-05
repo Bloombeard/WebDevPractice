@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>John's Css Demo</title>
+    
+    <style>
+        .funky{
+            background-color: #123456;
+            color: white;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            box-shadow: 2px 2px green;
+            transition-duration: 2s;
+        }
+
+        .funky:hover{
+            background-color: orange;
+            width: 200px;
+        }
+
+        .munky{
+            background-color: #fedcba;
+            color: black;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        /* target all divs inside funky */
+        .funky div{
+            display: none;
+        }
+
+
+
+        .munky div{
+            display: none;
+        }
+
+        /* target divs inside funky only when hovered */
+        .funky:hover div{
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="funky">Hi there!<div>I only show on hover</div></div>
+    <div class="munky">Hi too</div>
+    <div class="funky">Hi there!<div>I only show on hover</div></div>
+    <div class="munky">Hi too<div>I only show on hover</div></div>
+    <div class="funky">Hi there!<div>I only show on hover</div></div>
+    <div class="munky">Hi too</div>
+    <div class="funky">Hi there!</div>
+    <div class="munky">Hi too</div>
+
+    <div class="storybook">This is the story of something or other, it's fine. whatever.</div>
+</body>
+</html>
