@@ -7,21 +7,25 @@
     <title>Postits</title>
     <style>
         .postit{
-            background-color: #edc045;
-            width: 200px;
+            shape-outside: polygon(0 0, 0 200px, 200px 200px, 200px 0);
+            clip-path: polygon(0 0, 0 200px, 200px 200px, 200px 0);
+            background:  #edc045;
             height: 200px;
+            width: 200px;
         }
 
         .postit:hover{
-            animation: cornerfold 1s;
+            animation: cornerfold 3s;
         }
 
         @keyframes cornerfold{
             from{
-
+                shape-outside: polygon(0 0, 0 200px, 200px 200px, 200px 0);
+                clip-path: polygon(0 0, 0 200px, 200px 200px, 200px 0);
             }
             to{
-
+                shape-outside: polygon(0 0, 0 200px, 175px 200px, 200px 175px, 200px 0);
+                clip-path: polygon(0 0, 0 200px, 175px 200px, 200px 175px, 200px 0);
             }
         }
     </style>
