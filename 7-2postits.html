@@ -7,30 +7,51 @@
     <title>Postits</title>
     <style>
         .postit{
-            shape-outside: polygon(0 0, 0 200px, 200px 200px, 200px 0);
-            clip-path: polygon(0 0, 0 200px, 200px 200px, 200px 0);
+            shape-outside: polygon(0 0, 0 200px, 200px 200px, 200px 200px, 200px 0);
+            clip-path: polygon(0 0, 0 200px, 200px 200px, 200px 200px, 200px 0);
             background:  #edc045;
             height: 200px;
             width: 200px;
         }
 
-        .postit:hover{
-            animation: cornerfold 3s;
+        .postit .fold{
+            shape-outside: polygon(150px 150px, 175px 200px, 200px 175px);
+            clip-path: polygon(150px 150px, 175px 200px, 200px 175px);
+            background:  #a0812e;
+            height: inherit;
+            width: inherit;
+            display:inherit;
         }
 
-        @keyframes cornerfold{
+        .postit:hover{
+            animation: corner 1s;
+            /* animation: fold 1s; */
+        }
+
+        @keyframes corner{
             from{
-                shape-outside: polygon(0 0, 0 200px, 200px 200px, 200px 0);
-                clip-path: polygon(0 0, 0 200px, 200px 200px, 200px 0);
+                shape-outside: polygon(0 0, 0 200px, 200px 200px, 200px 200px, 200px 0);
+                clip-path: polygon(0 0, 0 200px, 200px 200px, 200px 200px, 200px 0);
             }
             to{
-                shape-outside: polygon(0 0, 0 200px, 175px 200px, 200px 175px, 200px 0);
-                clip-path: polygon(0 0, 0 200px, 175px 200px, 200px 175px, 200px 0);
+                shape-outside: polygon(0 0, 0 200px, 170px 200px, 200px 170px, 200px 0);
+                clip-path: polygon(0 0, 0 200px, 170px 200px, 200px 170px, 200px 0);
             }
         }
+
+        /* @keyframes fold{
+            from{
+
+            }
+            to{
+
+            }
+        } */
+
     </style>
 </head>
 <body>
-    <div class="postit">Animation test</div>
+    <div class="postit">Animation test<div class="fold">t</div></div>
+    
 </body>
 </html>
