@@ -53,7 +53,6 @@
             animation: gotored 1s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
-            transform:rotate(-42deg);
         }
 
         .storybook::first-letter{
@@ -67,6 +66,8 @@
             }
             to{
                 color: red;
+                transform:rotate(-42deg);
+
                 /* font-size: 3rem; */
             }
         }
@@ -81,7 +82,8 @@
     </style>
 </head>
 <body>
-        <div class="storybook">This is the story of something or other, it's fine. whatever.</div>
+        <!-- The divs inside divs basically just add the rotations together -->
+    <div class="storybook">This is the story of something or other, it's fine. whatever.<div class="storybook">What do you think will happen here?<div class="storybook">Oh fuck me I'm dizzy<div class="storybook">Help!</div></div></div></div>
 
         <div class="otherbook">This is a much more serious book. So it shouldn't change colors nearly as quickly.</div>
 </body>
