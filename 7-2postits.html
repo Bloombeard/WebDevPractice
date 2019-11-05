@@ -27,11 +27,10 @@
         .bigpostit{
             background-color:lightyellow;
             transform: scale(3);
-            transition: all 0.5 ease-in-out;
-            margin: auto;
-            display: block;
+            margin: 25vw;
+            display:inline-block;
             margin-top: 25vw;
-            top: inherit;
+            transition: all 0.5 ease-in-out;
         }
         
         
@@ -51,10 +50,10 @@
             }
         }
 
-        function expand(id)
+        function toggleSize(id)
         {
             state = document.getElementById(id)
-            if (state.classList.contains("bitpostit"))
+            if (state.classList.contains("bigpostit"))
             {
                 state.classList.remove("bigpostit");
                 console.log("it has bigpostit");
@@ -70,11 +69,11 @@
 </head>
 <body>
     <div id="boxes">
-        <div id="items" class="postit" onclick="expand(id)">cucumbers tomatoes carrots</div>
-        <div class="postit">vacuum living room</div>
-        <div class="postit">do groceries</div>
-        <div class="postit">replace house</div>
-        <div class="postit">translate son</div>
+        <div id="1" class="postit" onclick="toggleSize(id)">cucumbers tomatoes carrots</div>
+        <div id="2" class="postit" onclick="toggleSize(id)">vacuum living room</div>
+        <div id="3" class="postit" onclick="toggleSize(id)">do groceries</div>
+        <div id="4" class="postit" onclick="toggleSize(id)">replace house</div>
+        <div id="5" class="postit" onclick="toggleSize(id)">translate son</div>
     </div>
 
     <input onkeypress="returnkey()" type="text" id="myinput">
