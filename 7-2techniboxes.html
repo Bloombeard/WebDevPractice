@@ -2,131 +2,264 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Group Calculator</title>
+    
+    <!-- START Styles -->
     <style>
-        body{
-            height: 100%;
-            background-color: #101010;
+        body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 2em;
+            color: #000;
         }
-        /* defines the main area for the website */
-        #main{
-            width: 920px;
-            margin: 0 auto;
+
+        div.calculator {
+            background: #333;
+            width: 25vw;
+            height: 75vh;
+            border-radius: 3px;
+            border: 3px solid yellow;
+            display: block;
         }
-        /* lays out boxes right next to each other, which line up just right because of how we've defined the main area */
-        .box{
-            position:relative;
-            z-index: 1;
-            float: left;
-            height: 10vw;
-            width: 10vw;
-            background-color: #444;
+
+        div.button-wrap {
+            display: flex;
+            margin: 0.35em;
         }
-        .clear{
-            clear: both;
+
+        div.display {
+            background: #fff;
+            overflow-x: scroll; /* Check this later */
+            height: 15vh;
+            width: 23vw;
+            border: 2px solid gray;
         }
-        .selected{
-            z-index: 999;
-            box-shadow: 0 0 10px black;
-            transform: scale(1.3);
+
+        .button {
+            width: 15vh;
+            height: 2.5vw;
+            border-radius: 3px;
+            background: gray;
+            display:inline-flex;
+            margin: 0.25em;
+            padding: 0.5em;
         }
+
+        .inside {
+            text-align: center;
+        }
+
+        
+
+
     </style>
+    <!-- END Styles -->
+
     
-    <title>Techniboxes</title>
+
 </head>
+
 <body>
-    <div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </div>
-    <script>
-            const SQUARES = document.querySelectorAll(".box");
-            var squares = Array.from(SQUARES);
-           
-            for (i = 0; i < squares.length; i++)
-            {
-                squares[i].addEventListener("mouseover", changeColor);
-                squares[i].addEventListener("mouseleave", noGlow);
-                
-            }
-    
-            function changeColor()
-            {
-                var num = squares.indexOf(this);
-                squares[num].style.backgroundColor = randomColor();
-                squares[num].classList.toggle("selected");
-            }
-    
-            function noGlow()
-            {
-                var num = squares.indexOf(this);
-                squares[num].classList.toggle("selected");
-            }
-    
-            function randomColor()
-                {
-                    // Heres how this works:
-                    // the pound sign makes what we're about to get into a hex code
-                    // math.random returns a random number that always starts with 0.
-                    // tostring(16) converts the number to BASE16!
-                    // slice(2,8) makes sure to get rid of the 0. at the beginning, and to only grab 8 chars
-                    // add that to the pound sign and voila! a random color!
-                    return '#' + Math.random().toString(16).slice(2,8);
-                }
+    <div class="calculator">
+        <div class="button-wrap">
+            <div id="display" class="display">test</div>
+        </div>
+        <div class="button-wrap">
+            <div id="reset" class="button">AC</div>
             
-        </script>
+            <div id="divide" class="button">/</div>
+            <div id="zero" class="button">0</div>
+            <div id="one" class="button">1</div>
+            <div id="two" class="button">2</div>
+            <div id="three" class="button">3</div>
+            <div id="plus" class="button">+</div>
+            <div id="four" class="button">4</div>    
+            <div id="five" class="button">5</div>
+            <div id="six" class="button">6</div>
+            <div id="minus" class="button">-</div>
+            <div id="seven" class="button">7</div>
+            <div id="eight" class="button">8</div>
+            <div id="nine" class="button">9</div>
+            <div id="multiply" class="button">X</div>
+
+
+            <div id="equals" class="button">=</div>
+        </div>
+    </div>
+<!-- START Scripts -->
+<script>
+        let reset = document.getElementById("reset");
+        let zero = document.getElementById("zero");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let six = document.getElementById("six");
+        let seven = document.getElementById("seven");
+        let eight = document.getElementById("eight");
+        let nine = document.getElementById("nine");
+        let plus = document.getElementById("plus");
+        let minus = document.getElementById("minus");
+        let multiply = document.getElementById("multiply");
+        let divide = document.getElementById("divide");
+        let equals = document.getElementById("equals");
+
+        // let test = document.(".button");
+        let outputString = '';
+        let printer = document.querySelector("#display");
+
+        function pressZero()
+        {
+            outputString += '0';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressOne()
+        {
+            outputString += '1';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressTwo()
+        {
+            outputString += '2';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressThree()
+        {
+            outputString += '3';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressFour()
+        {
+            outputString += '4';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        
+        function pressFive()
+        {
+            outputString += '5';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressSix()
+        {
+            outputString += '6';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressSeven()
+        {
+            outputString += '7';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressEight()
+        {
+            outputString += '8';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressNine()
+        {
+            outputString += '9';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressPlus()
+        {
+            outputString += '+';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressMinus()
+        {
+            outputString += '-';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressMultiply()
+        {
+            outputString += '*';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressDivide()
+        {
+            outputString += '/';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressEquals()
+        {
+            outputString = eval(outputString);
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+        function pressReset()
+        {
+            outputString = '';
+            console.log(outputString);
+            printer.innerHTML = outputString;
+        }
+
+        reset.addEventListener('click', pressReset);
+        zero.addEventListener('click', pressZero);
+        one.addEventListener('click', pressOne);
+        two.addEventListener('click', pressTwo);
+        three.addEventListener('click', pressThree);
+        four.addEventListener('click', pressFour);
+        five.addEventListener('click', pressFive);
+        six.addEventListener('click', pressSix);
+        seven.addEventListener('click', pressSeven);
+        eight.addEventListener('click', pressEight);
+        nine.addEventListener('click', pressNine);
+        plus.addEventListener('click', pressPlus);
+        minus.addEventListener('click', pressMinus);
+        multiply.addEventListener('click', pressMultiply);
+        divide.addEventListener('click', pressDivide);
+        equals.addEventListener('click', pressEquals);
+
+        // for(let i = 0; i < squares.Length; i++)
+        // {
+        //     console.log(i);
+        //     squares[i].addEventListener('click', press);
+        // }
+
+        const boxes = document.querySelectorAll(".box");
+  const timerBoxes = document.querySelectorAll("#timer");
+  function randArrayNum() {
+    return classesArray[Math.floor(Math.random() * 2)];
+  }
+
+// for(var i = 0; i < boxes.length; i++) {
+//     boxes[i].addEventListener('mouseenter', box => {
+//     let randomArray = Math.floor(Math.random() * 2);
+//     console.log(randomArray);
+//       console.log(getColor());
+//     console.log("tbox");
+//     console.log(timerBoxes);
+//     const nextColor = getColor();
+//     console.log(box);
+//     console.log("bgColor");
+//     console.log(box.target.style.background);
+//     // box.classList.toggle("boxTwo");
+//     // box.setAttribute("class", `${randArrayNum()}`);
+//     // box.originalTarget.attributes.class = randArrayNum();
+//     console.log(box.target.style.classname);
+//     box.target.classList.toggle("boxTwo");
+//     box.target.style.background = nextColor;
+//   }
+
+
+
+
+    </script>
+    <!-- END Scripts -->
 </body>
 </html>
