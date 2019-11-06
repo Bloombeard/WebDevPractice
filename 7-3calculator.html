@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Group Calculator</title>
+    
+    <!-- START Styles -->
+    <style>
+        body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 2em;
+            color: #000;
+        }
+
+        div.calculator {
+            background: #333;
+            width: 25vw;
+            height: 75vh;
+            border-radius: 3px;
+            border: 3px solid yellow;
+            display: block;
+        }
+
+        div.button-wrap {
+            display: flex;
+            margin: 0.35em;
+        }
+
+        div.display {
+            background: #fff;
+            overflow-x: scroll; /* Check this later */
+            height: 15vh;
+            width: 23vw;
+            border: 2px solid gray;
+        }
+
+        .button {
+            width: 15vh;
+            height: 2.5vw;
+            border-radius: 3px;
+            background: gray;
+            display:inline-flex;
+            margin: 0.25em;
+            padding: 0.5em;
+        }
+
+        .inside {
+            text-align: center;
+        }
+
+        
+
+
+    </style>
+    <!-- END Styles -->
+
+    
+
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="button-wrap">
+            <div class="display">test</div>
+        </div>
+        <div class="button-wrap">
+            <div class="button">5</div>
+            <div class="button">8</div>
+            <div class="button">+</div>
+            <div class="button">=</div>
+        </div>
+    </div>
+<!-- START Scripts -->
+<script>
+        const squares = document.querySelectorAll(".button");
+
+        for(i = 0; i < squares.Length; i++)
+        {
+            squares[i].addEventListener("click", press);
+        }
+
+        function press()
+        {
+            console.log("button pressed");
+        }
+
+    </script>
+    <!-- END Scripts -->
+</body>
+</html>
