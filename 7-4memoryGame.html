@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Memory Game</title>
     <style>
+       body{
+           background-color: #17ABC2;
+       }
        .table{
             display: flex;
             height: fit-content;
-            width: 90vw;
-            border: solid 1px blue;
+            width: 57vw;
+            background-color: #B7F5FF;
+            border-radius: 2vw;
             flex-wrap: wrap;
             justify-content: space-around;
             align-content: space-around;
@@ -20,12 +24,12 @@
             display: flex;
             height: 15vw;
             width: 10vw;
-            background-color: magenta;
-            border: solid 2px black;
+            background-color: #C26821;
+            border-radius: 1vw;
             margin: 2vw;
             font-size: 3vw;
-       }
-       
+            justify-content: center;
+       }       
        .front{
             background-color: inherit;
             color: inherit;
@@ -75,13 +79,13 @@
         var tempAnswer = "quack";
         var tempCard = 13;
         //MAKE THIS WORK
-        preventClick = false;
+        freeze = false;
 
         
 
         function flip(event)
         { 
-            if (preventClick)
+            if (freeze)
             {
                 console.log("nope");
             }
@@ -131,7 +135,7 @@
                 }
                 else
                 {
-                    preventClick = true;
+                    freeze = true;
                     //everything is unclickable
                     setTimeout(function ()
                     {
@@ -141,7 +145,7 @@
                         cards[num].innerHTML = "duck";
                         tempAnswer = "quack";
                         tempCard = 13;
-                        preventClick = false;
+                        freeze = false;
                         //unfreeze it
                     }, 1000);       
                 }

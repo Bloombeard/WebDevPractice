@@ -27,3 +27,9 @@ An assignment were we were tasked with understanding and recreating Jennifer Dew
 
 7-3calculator
 A group assignment creating a functioning calculator and interface for browsers
+
+7-4johnsCalculator
+John's demonstration of a calculator, typed along. Display has two lines for operations.
+
+7-4memoryGame
+group project of a card-flipping memory game. Game works, styling could be better.
