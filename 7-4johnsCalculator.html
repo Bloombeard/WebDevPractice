@@ -31,41 +31,57 @@
         .operator{
             display: inline-block;
         }
-        .input{
-
-        }
         .littledisplay{
             font-size: 0.5em
         }
     </style>
     <script>
+        var memory = 0;
+        var operator = "";
+        var input = 0;
+
         function pressNumber(number)
         {
-            //change the inner html of input to add 1 to the end
-            document.getElementById("input").innerHTML += number;
+            //change input to add 1 to the end
+            //multiplying by ten moves the number that's already there one place over.
+            input = input * 10 + number;
+            updateDisplay();
+        }
+        function updateDisplay()
+        {
+            document.getElementById("input").innerHTML = input;
+            document.getElementById("operator").innerHTML = operator;
+            if(memory == 0)
+            {
+                document.getElementById("memory").innerHTML = "";
+            }
+            else
+            {
+                document.getElementById("memory").innerHTML = memory;
+            }
         }
         function pressPlus()
         {
             pressEquals();
             //move input to memory
-            document.getElementById("memory").innerHTML = document.getElementById("input").innerHTML;
+            memory = input;
             
             //clear input
-            document.getElementById("input").innerHTML = "";
+            input = 0;
 
             // add + to operator
-            document.getElementById("operator").innerHTML = "+";
+            operator = "+";
+            updateDisplay();
         }
         function pressEquals()
         {
-            if(document.getElementById("operator").innerHTML.length > 0)
+            if(operator.length > 0)
             {
                 //takes memory on one side and input on the other side and lets operator tell it what to do
                 //Number() is the same as Convert.ToInt32
-                var memory = Number(document.getElementById("memory").innerHTML);
-                var input = Number(document.getElementById("input").innerHTML);
+                
 
-                if(document.getElementById("operator").innerHTML == "+")
+                if(operator == "+")
                 {
                     //add them together
                     var result = memory + input;
@@ -76,11 +92,14 @@
                     var result = memory - input;
                 }
                 //puts result of math into input
-                document.getElementById("input").innerHTML = result;
+                input = result;
+
+               
                 //clears out memory
-                document.getElementById("memory").innerHTML = "";
+                memory = 0;
                 //clears out operator
-                document.getElementById("operator").innerHTML = "";
+                operator = "";                
+                updateDisplay();
             }
         }
 
