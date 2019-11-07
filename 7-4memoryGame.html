@@ -74,61 +74,66 @@
 
         var tempAnswer = "quack";
         var tempCard = 13;
+        //MAKE THIS WORK
+        preventClick = false;
 
         
 
         function flip(event)
-        {
-            
-            console.log(event);
-            var num = cards.indexOf(event.target);
-            if (num == 0 || num == 1)
+        { 
+            if (preventClick)
             {
-                var answer = ducks[0];
-
-            }
-            else if(num == 2 || num == 3)
-            {
-                var answer = ducks[1];
-            }
-            else if(num == 4 || num == 5)
-            {
-                var answer = ducks[2];
-            }
-            else if(num == 6 || num == 7)
-            {
-                var answer = ducks[3];
-            }
-            else if(num == 8 || num == 9)
-            {
-                var answer = ducks[4];
-            }
-            else if(num == 10 || num == 11)
-            {
-                var answer = ducks[5];
-            }
-            cards[num].innerHTML = answer;
-
-            
-            if (tempAnswer == "quack")
-            {
-                tempAnswer = answer;
-                tempCard = num;
-            }
-            else if (tempAnswer == answer)
-            {
-                //keep the cards flipped;
-                //reset tempAnswer
-                tempAnswer = "quack";
-                tempCard = 13;
+                console.log("nope");
             }
             else
             {
-                function freeze()
+                console.log(event);
+                var num = cards.indexOf(event.target);
+                if (num == 0 || num == 1)
                 {
+                    var answer = ducks[0];
+
+                }
+                else if(num == 2 || num == 3)
+                {
+                    var answer = ducks[1];
+                }
+                else if(num == 4 || num == 5)
+                {
+                    var answer = ducks[2];
+                }
+                else if(num == 6 || num == 7)
+                {
+                    var answer = ducks[3];
+                }
+                else if(num == 8 || num == 9)
+                {
+                    var answer = ducks[4];
+                }
+                else if(num == 10 || num == 11)
+                {
+                    var answer = ducks[5];
+                }
+                cards[num].innerHTML = answer;
+
+                
+                if (tempAnswer == "quack")
+                {
+                    tempAnswer = answer;
+                    tempCard = num;
+                }
+                else if (tempAnswer == answer)
+                {
+                    //keep the cards flipped;
+                    //reset tempAnswer
+                    tempAnswer = "quack";
+                    tempCard = 13;
+                }
+                else
+                {
+                    preventClick = true;
                     //everything is unclickable
-                    setTimeout(wrongAnswer, 1000);
-                    function wrongAnswer()
+                    setTimeout(function ()
                     {
                         //flip tempCard back over
                         cards[tempCard].innerHTML = "duck";
@@ -136,9 +141,9 @@
                         cards[num].innerHTML = "duck";
                         tempAnswer = "quack";
                         tempCard = 13;
+                        preventClick = false;
                         //unfreeze it
-                    }
-                    
+                    }, 1000);       
                 }
             }
             
