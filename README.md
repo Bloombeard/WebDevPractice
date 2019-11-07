@@ -12,3 +12,18 @@ this is an incomplete project whose aim was to create blocks of test with the ap
 
 7-1chatDemonstration
 this program was me typing along with Jean's version of the textConvo assinment as she was typing it. Different commits may happen when a large chunk of code was deleted before demonstrating a different method (such as switching from float to flexbox).
+
+7-2johnCssDemo
+Typed along with John demonstrating things like animation and other CSS tools
+
+7-2postits
+Group project trying to recreate something like trello: a series of postits that allow the user to type something in. Not completed
+
+7-2postitsdemo
+Typed along with John demonstrating how to do the above trello-like assignment
+
+7-2techniboxes
+An assignment were we were tasked with understanding and recreating Jennifer Dewalt's "Technicolor Boxes" website
+
+7-3calculator
+A group assignment creating a functioning calculator and interface for browsers
