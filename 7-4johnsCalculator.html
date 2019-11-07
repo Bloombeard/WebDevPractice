@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>John's Calculator</title>
+    <style>
+        .calculator{
+            border: solid 1px black;
+            height: fit-content;
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+        }
+        .display{
+            height: 2em;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            margin: auto;
+            border: solid 1px black;
+            border-radius: 3px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        .memory{
+            display: inline-block;
+        }
+        .operator{
+            display: inline-block;
+        }
+        .input{
+
+        }
+        .littledisplay{
+            font-size: 0.5em
+        }
+    </style>
+    <script>
+        function pressNumber(number)
+        {
+            //change the inner html of input to add 1 to the end
+            document.getElementById("input").innerHTML += number;
+        }
+        function pressPlus()
+        {
+            pressEquals();
+            //move input to memory
+            document.getElementById("memory").innerHTML = document.getElementById("input").innerHTML;
+            
+            //clear input
+            document.getElementById("input").innerHTML = "";
+
+            // add + to operator
+            document.getElementById("operator").innerHTML = "+";
+        }
+        function pressEquals()
+        {
+            if(document.getElementById("operator").innerHTML.length > 0)
+            {
+                //takes memory on one side and input on the other side and lets operator tell it what to do
+                //Number() is the same as Convert.ToInt32
+                var memory = Number(document.getElementById("memory").innerHTML);
+                var input = Number(document.getElementById("input").innerHTML);
+
+                if(document.getElementById("operator").innerHTML == "+")
+                {
+                    //add them together
+                    var result = memory + input;
+                }
+                else
+                {
+                    //subtract them together
+                    var result = memory - input;
+                }
+                //puts result of math into input
+                document.getElementById("input").innerHTML = result;
+                //clears out memory
+                document.getElementById("memory").innerHTML = "";
+                //clears out operator
+                document.getElementById("operator").innerHTML = "";
+            }
+        }
+
+        //these are other ways of declaring functions in javascript that you WILL see.
+        // var one = function()
+        // {
+
+        // }
+        // var one = () => {
+
+        // }
+
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div class="littledisplay">
+                <div class="memory" id="memory"></div>
+                <div class="operator" id="operator"></div>
+            </div>
+            <div class="input" id="input"></div>
+        </div>
+        
+        <button onClick="pressNumber(1)">1</button>
+        <button onClick="pressNumber(2)">2</button>
+        <button onClick="pressNumber(3)">3</button>
+        <button onClick="pressPlus()">+</button>
+        <button>-</button>
+        <button onClick="pressEquals()">=</button>
+
+    </div>
+</body>
+</html>
