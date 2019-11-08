@@ -7,13 +7,16 @@
     <title>Memory Game</title>
     <style>
        body{
-           background-color: #17ABC2;
+           background-color: #1E56B3;
+
        }
        .table{
             display: flex;
             height: fit-content;
             width: 57vw;
-            background-color: #B7F5FF;
+            border: solid .2em #A3C5FF;
+            background-color: #FF9687;
+            box-shadow: 5px 5px 10px;
             border-radius: 2vw;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -24,12 +27,18 @@
             display: flex;
             height: 15vw;
             width: 10vw;
-            background-color: #C26821;
             border-radius: 1vw;
+            background-color: #A3CC37;
+            border: solid .1em #A0B36D;
             margin: 2vw;
             font-size: 3vw;
             justify-content: center;
+            transition: .3s ease-in-out;
        }       
+       .card:hover{
+           transform: scale(1.2 1.2);
+           box-shadow: 2px 2px 6px;
+       }
        .front{
             background-color: inherit;
             color: inherit;
