@@ -2,76 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=s">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Titles are for suckers</title>
     <script>
-        //list of cards
-            //cards hold this info
-                //what it looks like
-                //is currently clicked
-                //id maybe?
-                //has it been matched?
-        function newCard(face, id)
+        // list of cards
+          // cards hold this info: what it looks like, has been clicked/is currently clicked?, id maybe?, has it been matched
+        var state = {};
+
+        function newCard(facespace, id)
         {
             var card = {
-                face: face,
+                face: facespace,
                 currentlyClicked: false,
                 id: id,
-                matched: false,
+                matched: false
             };
             return card;
         }
-
-        var cards =[];
-        cards.push(newCard("cat", 1));
-        cards.push(newCard("dog", 3));
-        cards.push(newCard("cat", 2));
-        cards.push(newCard("dog", 4));
-
-        //the ability to click a card
+        
+        state.cards = [];
+        state.cards.push(newCard("cat", 1));
+        state.cards.push(newCard("dog", 3));
+        state.cards.push(newCard("cat", 2));
+        state.cards.push(newCard("dog", 4));
+        
+          
+        // the ability to "click" a card
         function clickCard(cardId)
         {
-            for(var i = 0; i < cards.length; i++)
+            for(var i = 0; i < state.cards.length; i++)
             {
-                if(cards[i].id == cardId)
+                if(state.cards[i].id === cardId)
                 {
-                    var currentCard = cards[i];
+                    // current card that was clicked
+                    var currentCard = state.cards[i];
+                    if (currentCard.matched === true || currentCard.currentlyClicked)
+                    {
+                        return;
+                    }
                 }
-                //three equals asks if they're actually the same type and value
-                //two equals asks if they can somehow be made to equal the same thing
-                //in javascript ALWAYS USE TRIPLE-EQUALS
-                if(cards[i].currentlyClicked === true)
+                if(state.cards[i].currentlyClicked === true)
                 {
-                    var previousCard = cards[i];
+                    var previousCard = state.cards[i];
                 }
             }
 
             if(previousCard === undefined)
             {
-                //didn't find one that was already clicked
-                //so click this one
+                // didn't find one that was already clicked
+                // so click this one
                 currentCard.currentlyClicked = true;
             }
             else
             {
                 if(currentCard.face === previousCard.face)
                 {
-                    //they match!
+                    // they match!
                     currentCard.matched = true;
-                    currentCard.matched = true;
+                    previousCard.matched = true;
                 }
-                //either way, unclick both so you can pick two new cards
-                currentCard.CurrentlyClicked = false;
+                // either way, unclick both so you can pick two new cards
+                currentCard.currentlyClicked = false;
                 previousCard.currentlyClicked = false;
+
             }
+
             console.log("current", currentCard);
             console.log("previous", previousCard);
             
         }
-        //if it is the first card clicked, mark that it was clicked
-        //when two are clicked, see if they are the same
-        //if not, go back to none clicked
+        // if it is the first card clicked, mark that it was clicked
+        // when two are clicked, see if they are the same
+        // if not, go back to none clicked
     </script>
 </head>
 <body>
