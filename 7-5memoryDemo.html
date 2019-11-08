@@ -6,7 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Titles are for suckers</title>
     <script>
-        
+        //list of cards
+            //cards hold this info
+                //what it looks like
+                //is currently clicked
+                //id maybe?
+                //has it been matched?
+        function newCard(face, id)
+        {
+            var card = {
+                face: face,
+                currentlyClicked: false,
+                id: id,
+                matched: false,
+                noFlip: function() {console.log("my face is: ", face)}
+            };
+            return card;
+        }
+
+        card1 = newCard("cat", 1);
+        card2 = newCard("dog", 2);
+        //the ability to click a card
+        //if it is the first card clicked, remember which card that was
+        //when two are clicked, see if they are the same
+        //if not, go back to none clicked
     </script>
 </head>
 <body>
