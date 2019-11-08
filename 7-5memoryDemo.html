@@ -19,15 +19,57 @@
                 currentlyClicked: false,
                 id: id,
                 matched: false,
-                noFlip: function() {console.log("my face is: ", face)}
             };
             return card;
         }
 
-        card1 = newCard("cat", 1);
-        card2 = newCard("dog", 2);
+        var cards =[];
+        cards.push(newCard("cat", 1));
+        cards.push(newCard("dog", 3));
+        cards.push(newCard("cat", 2));
+        cards.push(newCard("dog", 4));
+
         //the ability to click a card
-        //if it is the first card clicked, remember which card that was
+        function clickCard(cardId)
+        {
+            for(var i = 0; i < cards.length; i++)
+            {
+                if(cards[i].id == cardId)
+                {
+                    var currentCard = cards[i];
+                }
+                //three equals asks if they're actually the same type and value
+                //two equals asks if they can somehow be made to equal the same thing
+                //in javascript ALWAYS USE TRIPLE-EQUALS
+                if(cards[i].currentlyClicked === true)
+                {
+                    var previousCard = cards[i];
+                }
+            }
+
+            if(previousCard === undefined)
+            {
+                //didn't find one that was already clicked
+                //so click this one
+                currentCard.currentlyClicked = true;
+            }
+            else
+            {
+                if(currentCard.face === previousCard.face)
+                {
+                    //they match!
+                    currentCard.matched = true;
+                    currentCard.matched = true;
+                }
+                //either way, unclick both so you can pick two new cards
+                currentCard.CurrentlyClicked = false;
+                previousCard.currentlyClicked = false;
+            }
+            console.log("current", currentCard);
+            console.log("previous", previousCard);
+            
+        }
+        //if it is the first card clicked, mark that it was clicked
         //when two are clicked, see if they are the same
         //if not, go back to none clicked
     </script>
